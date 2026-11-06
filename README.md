@@ -11,11 +11,23 @@
 ├── README.md      ← このファイル（サイトには出ない）
 └── docs/          ← ここだけがWebサイトになる
     ├── .nojekyll  ← GitHub Pages の Jekyll 処理を無効にする空ファイル
-    ├── index.html
-    ├── css/
+    ├── index.html       ← トップ
+    ├── about.html       ← 岡田式静坐法
+    ├── howto.html       ← 初めての静坐
+    ├── aims.html        ← 静坐の目指すもの
+    ├── history.html     ← 世田谷静坐会の歩み
+    ├── join.html        ← 参坐をご希望の方
+    ├── join-faq.html    ← 静坐に不安をお持ちの皆様に
+    ├── news.html        ← 最新情報
+    ├── info.html        ← お知らせ
+    ├── references.html  ← 引用文献・参考資料
+    ├── goroku/          ← 深田 淳先生 語録（1.html〜4.html）
+    ├── css/style.css    ← 全ページ共通のスタイル
     ├── images/
     └── pdf/
 ```
+
+各ページの本文は、旧サイト（BIGLOBE・ホームページV4）の内容をそのまま移したものです。
 
 ## 更新のしかた
 

@@ -1,0 +1,187 @@
+/*
+ * 世田谷静坐会 共通スタイル
+ * 旧サイト（ホームページV4のテンプレート）の配色・並びを再現し、スマホでも読めるようにしたもの。
+ * テーマは3種類（旧サイトのページごとの見た目に合わせている）
+ *   .theme-water    … 水色の波模様（トップ）
+ *   .theme-side     … 左に写真の列がある水色系（岡田式静坐法・初めての静坐）
+ *   .theme-lavender … 青紫（それ以外のページ）
+ */
+
+/* ---------- 色の設定 ---------- */
+.theme-water,
+.theme-side {
+  --body-bg: #dde4f0;
+  --page-bg: #e3fbff;
+  --main-bg: #a0ddf2;
+  --text: #005ad9;
+  --link: #5215cc;
+  --link-visited: #cc8f99;
+  --link-hover: #a64dff;
+}
+.theme-side {
+  --main-bg: #aebfeb;
+  --side-bg: #c0acdb;
+}
+.theme-lavender {
+  --body-bg: #dde4f0;
+  --page-bg: #dde4f0;
+  --main-bg: #aebfeb;
+  --text: #493b66;
+  --link: #bc2364;
+  --link-visited: #8c7074;
+  --link-hover: #ff7728;
+}
+
+/* ---------- 全体 ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--body-bg);
+  /* 旧サイトの背景（布地のような細かい模様）の雰囲気をCSSで再現 */
+  background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 5px 5px;
+  color: var(--text);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.page {
+  max-width: 1020px;
+  margin: 0 auto;
+  background: var(--page-bg);
+}
+
+a { color: var(--link); }
+a:visited { color: var(--link-visited); }
+a:hover { color: var(--link-hover); }
+
+img { max-width: 100%; height: auto; vertical-align: middle; }
+
+/* ---------- ヘッダー（サイト名のロゴ） ---------- */
+.site-title {
+  padding: 24px 16px 10px;
+  background: var(--body-bg);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 5px 5px;
+}
+.site-title img { display: block; width: 297px; max-width: 80%; }
+
+/* ---------- メニュー ---------- */
+.menubar { background: #c0acdb; padding: 4px 0 3px; }
+.menubar ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; }
+.menubar li { border-right: 1px solid #005ad9; }
+.menubar a,
+.menubar a:visited {
+  display: block;
+  padding: 2px 10px;
+  color: #005ad9;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.menubar a:hover { text-decoration: underline; }
+.menubar a.current,
+.menubar a.current:visited { color: #652bd9; }
+
+/* ---------- 本文と左の列 ---------- */
+.content { display: flex; align-items: flex-start; }
+.main {
+  flex: 1;
+  min-width: 0;
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  min-height: 400px;
+  background: var(--main-bg);
+  overflow-wrap: anywhere;
+}
+.side {
+  flex: 0 0 205px;
+  margin: 10px 0 10px 10px;
+  padding: 10px;
+  min-height: 480px;
+  background: var(--side-bg);
+  text-align: center;
+}
+/* 旧サイトの波模様の雰囲気をCSSで再現（トップの本文・左の列） */
+.theme-water .main,
+.side {
+  background-image:
+    repeating-radial-gradient(circle at 0 100%, transparent 0 10px, rgba(255, 255, 255, 0.22) 10px 11px);
+  background-size: 40px 20px;
+}
+
+.main h1 { font-size: 26px; line-height: 1.2; margin: 0; }
+.main h2 { font-size: 20px; line-height: 1.2; margin: 0; }
+.main h4 { margin: 0.6em 0; }
+.main hr { border: 0; border-top: 1px solid #8a8aa8; border-bottom: 1px solid rgba(255, 255, 255, 0.6); margin: 8px 0; }
+.main p { margin: 0; }
+
+/* 旧サイトの表（レイアウト用の表を含む）。スマホで横にはみ出さないようにする */
+.main table { max-width: 100%; border-collapse: separate; }
+.main table[border="1"] { width: 100%; }
+
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+.align-left { text-align: left; }
+/* 旧HTMLの <table align="center"> は表の位置だけを中央にする（中の文字は左寄せのまま） */
+table.align-center { margin-left: auto; margin-right: auto; text-align: left; }
+
+/* 「New!」マーク（旧サイトの画像の代わり） */
+.new-mark {
+  display: inline-block;
+  color: #ff3366;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
+  line-height: 1;
+}
+
+/* Enter / Next / Back ボタン（旧サイトの画像ボタンの代わり） */
+.btn,
+.btn:visited {
+  display: inline-block;
+  min-width: 80px;
+  padding: 3px 14px;
+  border: 1px solid #5c6fb8;
+  border-radius: 14px;
+  background: linear-gradient(#eef2ff, #b7c4ee);
+  color: #2a3a8a;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+}
+.btn:hover { background: linear-gradient(#ffffff, #c9d3f5); color: #2a3a8a; }
+.btn-next::after { content: " ▶"; }
+.btn-back::before { content: "◀ "; }
+.btn-enter::after { content: " ●"; color: #3a8a3a; }
+
+/* ---------- フッター ---------- */
+.footer {
+  padding: 4px 14px 3px;
+  background: #ffffff;
+  color: #8080ff;
+  font-size: 13px;
+  text-align: right;
+}
+.theme-lavender .footer { color: #9523bc; }
+
+/* ---------- スマホ ---------- */
+@media (max-width: 700px) {
+  .content { display: block; }
+  .side { margin: 6px 6px 0; min-height: 0; }
+  .side img { max-width: 45%; }
+}
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  .main { margin: 6px; padding: 10px 8px; }
+  .main table, .main tbody, .main tr { display: block; width: 100% !important; }
+  .main td { display: block; width: auto !important; }
+  .main table[border="1"] td { border-width: 1px; }
+}
